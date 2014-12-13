@@ -1,0 +1,125 @@
+@selectedItemBackground: #5bc0de;
+@selectedItemBorderColor: #46b8da;
+@treeBackground: #ffffff;
+
+.hierarchical-control {
+
+  .hierarchical-input {
+    cursor: text;
+
+    span.selected-items {
+      .selected-item {
+        background: @selectedItemBackground;
+        color: #fff;
+        padding: 2px 0 2px 8px;
+        border: 1px solid @selectedItemBorderColor;
+        border-radius: 3px;
+        margin-right: 3px;
+      }
+
+      .selected-item-close {
+        width: 20px;
+        cursor:pointer;
+        color: #fff;
+        font-weight: bold;
+        display: inline-block;
+        padding-left: 7px;
+      }
+
+      .selected-item-close:hover {
+        background: darken(@selectedItemBackground, 7%);
+      }
+
+      .selected-item-close:before {
+        content: 'x';
+      }
+    }
+
+    input.blend-in {
+      border:none;
+      border-width: 0;
+    }
+    input.blend-in:focus {
+      border:none;
+      border-width: 0;
+      outline:none;
+    }
+  }
+
+  .tree-view {
+    position:absolute;
+    max-height: 300px;
+    min-width: 250px;
+    max-width: 60%;
+    background: @treeBackground;
+    border: solid 1px #c4c4c4;
+    border-radius: 4px;
+    overflow: auto;
+    z-index: 500;
+    padding: 10px 5px;
+    cursor: default;
+
+    ul {
+      padding:0;
+      margin:0;
+
+      .item-details {
+        display: inline-block;
+        margin-left: 5px;
+      }
+
+      .tree-checkbox {
+        margin-right: 3px;
+        margin-top: 0;
+      }
+    }
+
+    .active {
+      background-color: darken(@treeBackground, 5%);
+      border-radius: 3px;
+    }
+
+    .selected.active {
+      background-color: darken(@selectedItemBackground, 5%);
+    }
+
+    .item-container {
+      padding: 1px 10px;
+      margin-top: 1px;
+      margin-bottom: 1px;
+    }
+
+    .selected {
+      padding: 0px 10px;
+      background: @selectedItemBackground;
+      color: #fff;
+      border: 1px solid @selectedItemBorderColor;
+      border-radius: 3px;
+    }
+
+    li {
+      list-style-type: none;
+      margin-left: 15px;
+
+      .expando {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+        border-left: 10px solid #525252;
+      }
+
+      .expando-opened {
+        border: none;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 10px solid #525252;
+      }
+    }
+
+    li.top-level {
+      margin: 0;
+    }
+  }
+}
