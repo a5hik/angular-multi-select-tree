@@ -11,6 +11,10 @@
                 <button type="button" ng-click="select( 'none', $event );" class="helper-button">×&nbsp; Select None</button>
                 <button type="button" ng-click="select( 'reset', $event );" class="helper-button">↶&nbsp; Reset</button>
             </div>
+            <div class="line" style="position:relative" >
+                <input placeholder="Search..." type="text" ng-click="select( 'filter', $event )" class="input-filter">
+                <button type="button" class="clear-button">×</button>
+            </div>
         </div>
         <div class="tree-container">
         <ul>
