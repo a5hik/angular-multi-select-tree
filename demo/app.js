@@ -3,7 +3,7 @@
 
 'use strict';
 
-var app = angular.module('demoApp', ['hierarchical-selector']);
+var app = angular.module('demoApp', ['multi-select-tree']);
 
 app.controller('demoAppCtrl', function ($scope) {
 

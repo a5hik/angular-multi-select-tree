@@ -50,7 +50,7 @@ module.exports = function (grunt) {
       }
     },
     ngtemplates: {
-      'hierarchical-selector': {
+      'multi-select-tree': {
         src: 'src/**/*.html',
         dest: 'dist/angular-multi-select-tree-<%= pkg.version %>.tpl.js'
       }
