@@ -9,7 +9,7 @@ angular.module('hierarchical-selector', [])
   return {
     restrict: 'E',
     replace: true,
-    templateUrl: 'hierarchical-selector.tpl.html',
+    templateUrl: 'multi-selector.tpl.html',
     scope: {
       data: '=',
       multiSelect: '=?',
