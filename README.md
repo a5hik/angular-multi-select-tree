@@ -1,4 +1,4 @@
-angular-multi-select-dropdown
+angular-multi-select-tree
 =============================
 
-A native Angular multi select dropdown.
+A native Angular multi select tree.
