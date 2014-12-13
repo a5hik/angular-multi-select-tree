@@ -92,6 +92,19 @@
 .tree-control .tree-view .selected.active {
   background-color: #46b8da;
 }
+
+/* container of helper elements */
+.tree-control .tree-view .helper-container {
+  border-bottom: 1px solid #ddd;
+  padding: 8px 8px 0px 8px;
+}
+
+/* container of multi select items */
+.tree-control .tree-view .tree-Container {
+  display: inline-block;
+  padding: 8px;
+}
+
 .tree-control .tree-view .item-container {
   padding: 3px;
   color: #444;
@@ -121,6 +134,76 @@
   border-left: 1px solid #e4e4e4;
   border-right: 1px solid #d9d9d9;
 }
+
+/* helper buttons (select all, none, reset); */
+.tree-control .tree-view .helper-button {
+  display: inline;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  height: 26px;
+  font-size: 13px;
+  border-radius: 2px;
+  color: #666;
+  background-color: #f1f1f1;
+  line-height: 1.6;
+  margin: 0px 0px 8px 0px;
+}
+
+/* clear button */
+.tree-control .tree-view .clear-button {
+  position: absolute;
+  display: inline;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  height: 22px;
+  width: 22px;
+  font-size: 13px;
+  border-radius: 2px;
+  color: #666;
+  background-color: #f1f1f1;
+  line-height: 1.4;
+  right : 2px;
+  top: 2px;
+}
+
+/* filter */
+.tree-control .tree-view .input-filter {
+  border-radius: 2px;
+  border: 1px solid #ccc;
+  height: 26px;
+  font-size: 14px;
+  width:100%;
+  padding-left:7px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+  color: #888;
+  margin: 0px 0px 8px 0px;
+}
+
+/* helper elements on hover & focus */
+.tree-control .tree-view .clear-button:hover,
+.tree-control .tree-view .helper-button:hover {
+  border: 1px solid #ccc;
+  color: #999;
+  background-color: #f4f4f4;
+}
+
+.tree-control .tree-view .clear-button:focus,
+.tree-control .tree-view .helper-button:focus,
+.tree-control .tree-view .input-filter:focus {
+  border: 1px solid #66AFE9 !important;
+  box-shadow: inset 0 0px 1px rgba(0,0,0,.035), 0 0 5px rgba(82,168,236,.7) !important;
+}
+
+/* ! create a "row" */
+.tree-control .tree-view .line {
+  max-height: 34px;
+  overflow: hidden;
+}
+
 .tree-control .tree-view li {
   list-style-type: none;
   margin-left: 15px;
