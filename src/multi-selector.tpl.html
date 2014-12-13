@@ -4,14 +4,13 @@
       <span ng-repeat="selectedItem in selectedItems" class="selected-item">{{selectedItem.name}} <span class="selected-item-close"
                                                                                   ng-click="deselectItem(selectedItem, $event)"></span></span>
     </span>
-        <!-- <input type="text" class="blend-in" /> -->
     </div>
     <div class="tree-view" ng-show="showTree">
         <ul>
             <tree-item class="top-level" ng-repeat="item in data" item="item" select-only-leafs="selectOnlyLeafs"
                        use-can-select-item="useCanSelectItemCallback" can-select-item="canSelectItem"
                        multi-select="multiSelect" item-selected="itemSelected(item)"
-                       on-active-item="onActiveItem(item)"/>
+                       on-active-item="onActiveItem(item)"></tree-item>
         </ul>
     </div>
 </div>
