@@ -1,0 +1,37 @@
+{
+  "name": "angular-ui-component-seed",
+  "version": "0.1.1",
+  "description": "Seed for reusable Angular UI components.",
+  "main": "component.js",
+  "scripts": {
+    "test": "./node_modules/karma/bin/karma start --browsers Firefox --single-run"
+  },
+  "author": {
+    "name": "Muhammed Ashik"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/a5hik/angular-ui-component-seed"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-concat": "~0.3.x",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-uglify": "~0.2.x",
+    "grunt-contrib-jshint": "~0.4.x",
+    "grunt-contrib-cssmin": "~0.7.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-connect": "~0.5.0",
+    "grunt-angular-templates": "~0.5.7",
+    "grunt-open": "~0.2.3",
+    "grunt-karma": "~0.7.x",
+    "karma-jasmine": "~0.2.2",
+    "karma-chrome-launcher": "~0.1",
+    "grunt-conventional-changelog": "~1.0.x",
+    "grunt-ngmin": "~0.0.3",
+    "load-grunt-tasks": "~0.2.0",
+    "lodash": "~2.4.x"
+  }
+}
