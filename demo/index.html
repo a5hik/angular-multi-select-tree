@@ -3,18 +3,35 @@
 <head>
     <meta charset="utf-8">
     <title>AngularJS Demo UI Component</title>
+
     <link rel="stylesheet" href="../bower_components/bootstrap-css-only/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../dist/angular-multi-select-tree-0.1.0.css">
+
     <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="../dist/angular-multi-select-tree-0.1.0.js"></script>
+    <script type="text/javascript" src="../dist/angular-multi-select-tree-0.1.0.tpl.js"></script>
 </head>
 <body ng-controller="demoAppCtrl">
 
 <header>
-    <h1 class="text-center">Demo Page for the Component</h1>
+    <h1 class="text-center">Demo Page for the Angular Multi Select Tree...</h1>
 </header>
 
 <div>
-</div>
+    <div class="container">
 
+        <div class="row">
+            <h2>Multi-select</h2>
+
+            <div class="col-md-6">
+                <hierarchical-selector data="data2" multi-select="true"
+                                       on-selection-changed="selectedItem2 = onSelectionChanged(items)"></hierarchical-selector>
+                <br/>Selected items: {{selectedItem2}}
+            </div>
+
+        </div>
+    </div>
+</div>
 </body>
 </html>

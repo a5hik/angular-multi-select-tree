@@ -3,17 +3,49 @@
 
 'use strict';
 
-var app = angular.module('demoApp', ['multi-select']);
+var app = angular.module('demoApp', ['hierarchical-selector']);
 
 app.controller('demoAppCtrl', function ($scope) {
 
-  $scope.inputList = [
-    { firstName: "Peter",    lastName: "Parker", selected: false },
-    { firstName: "Mary",     lastName: "Jane", selected: false },
-    { firstName: "Bruce",    lastName: "Wayne", selected: true  },
-    { firstName: "David",    lastName: "Banner", selected: false },
-    { firstName: "Natalia",  lastName: "Romanova", selected: false },
-    { firstName: "Clark",    lastName: "Kent", selected: true  }
-  ];
+  $scope.data1 = [];
+
+  for (var i = 0; i < 7; i++) {
+    var obj = {
+      id: i,
+      name: 'Node ' + i,
+      children: []
+    };
+
+    for (var j = 0; j < 3; j++) {
+      var obj2 = {
+        id: j,
+        name: 'Node ' + i + '.' + j,
+        children: []
+      };
+      obj.children.push(obj2);
+    }
+
+    $scope.data1.push(obj);
+  }
+
+  $scope.data1[1].children[0].children.push({
+    id: j,
+    name: 'Node sub_sub 1',
+    children: []
+  });
+
+  $scope.data2 = angular.copy($scope.data1);
+  $scope.data3 = angular.copy($scope.data1);
+  $scope.data4 = angular.copy($scope.data1);
+
+  $scope.onSelectionChanged = function(items) {
+    var str = '';
+    if (items) {
+      for (var i = 0; i < items.length; i++) {
+        str += items[i].name + ', ';
+      }
+    }
+    return str;
+  };
 
 });
