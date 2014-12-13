@@ -1,5 +1,5 @@
-<div class="hierarchical-control">
-  <div class="hierarchical-input form-control" ng-click="onControlClicked($event)">
+<div class="tree-control">
+  <div class="tree-input form-control" ng-click="onControlClicked($event)">
     <span ng-if="selectedItems.length > 0" class="selected-items">
       <span ng-repeat="i in selectedItems" class="selected-item">{{i.name}} <span class="selected-item-close" ng-click="deselectItem(i, $event)"></span></span>
     </span>
