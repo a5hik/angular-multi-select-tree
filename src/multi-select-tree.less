@@ -112,6 +112,15 @@
   border: 1px solid transparent;
   position: relative;
 }
+
+/* item labels focus on mouse hover */
+.tree-control .tree-view .item-container:hover {
+  background-image: linear-gradient( #c1c1c1, #999 ) !important;
+  color: #fff !important;
+  cursor: pointer;
+  border: 1px solid #ccc !important;
+}
+
 .tree-control .tree-view .selected {
   background-image: linear-gradient( #e9e9e9, #f1f1f1 );
   color: #555;
@@ -124,6 +133,7 @@
   list-style-type: none;
   margin-left: 15px;
 }
+
 .tree-control .tree-view li .expando {
   display: inline-block;
   width: 0;
