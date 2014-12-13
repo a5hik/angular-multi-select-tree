@@ -1,19 +1,14 @@
 {
   "author": "a5hik",
-  "name": "angular-ui-component-seed",
-  "description": "An Angular UI component seed.",
-  "version": "0.1.1",
-  "homepage": "http://github.com/a5hik/angular-ui-component-seed",
+  "name": "angular-multi-select-tree",
+  "version": "0.1.0",
+  "description": "A hierarchical (or tree) selection control for AngularJS",
+  "main": "index.js",
+  "homepage": "https://github.com/a5hik/angular-multi-select-tree",
   "repository": {
     "type": "git",
-    "url": "git://github.com/a5hik/angular-ui-component-seed"
+    "url": "https://github.com/a5hik/angular-multi-select-tree"
   },
-  "main": [
-    "dist/angular-ui-component-0.1.1.js",
-    "dist/angular-ui-component-0.1.1.min.js",
-    "dist/angular-ui-component-0.1.1.css",
-    "dist/angular-ui-component-0.1.1.min.css"
-  ],
   "dependencies": {
     "angular": "~1.3.x",
     "bootstrap-css-only": "~3.2.0"

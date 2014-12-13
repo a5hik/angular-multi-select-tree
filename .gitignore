@@ -3,4 +3,5 @@ node_modules
 components
 bower_components
 dist
+build
 .idea
