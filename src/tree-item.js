@@ -15,15 +15,33 @@
 
     $scope.item.isExpanded = false;
 
-    $scope.showExpando = function (item) {
+    /**
+     * Shows the expand option.
+     *
+     * @param item the item
+     * @returns {*|boolean}
+     */
+    $scope.showExpand = function (item) {
       return item.children && item.children.length > 0;
     };
 
-    $scope.onExpandoClicked = function (item, $event) {
+    /**
+     * On expand clicked toggle the option.
+     *
+     * @param item the item
+     * @param $event
+     */
+    $scope.onExpandClicked = function (item, $event) {
       $event.stopPropagation();
       item.isExpanded = !item.isExpanded;
     };
 
+    /**
+     * Event on click of select item.
+     *
+     * @param item the item
+     * @param $event
+     */
     $scope.clickSelectItem = function (item, $event) {
       $event.stopPropagation();
       if ($scope.itemSelected) {
@@ -31,18 +49,36 @@
       }
     };
 
+    /**
+     * Is leaf selected.
+     *
+     * @param item the item
+     * @param $event
+     */
     $scope.subItemSelected = function (item, $event) {
       if ($scope.itemSelected) {
         $scope.itemSelected({item: item});
       }
     };
 
+    /**
+     * Active sub item.
+     *
+     * @param item the item
+     * @param $event
+     */
     $scope.activeSubItem = function (item, $event) {
       if ($scope.onActiveItem) {
         $scope.onActiveItem({item: item});
       }
     };
 
+    /**
+     * On mouse over event.
+     *
+     * @param item the item
+     * @param $event
+     */
     $scope.onMouseOver = function (item, $event) {
       $event.stopPropagation();
       if ($scope.onActiveItem) {
@@ -50,12 +86,15 @@
       }
     };
 
+    /**
+     * Can select item.
+     *
+     * @returns {*}
+     */
     $scope.showCheckbox = function () {
       if (!$scope.multiSelect) {
         return false;
       }
-      // it is multi select
-      // canSelectItem callback takes preference
       if ($scope.useCanSelectItem) {
         return $scope.canSelectItem({item: $scope.item});
       }
