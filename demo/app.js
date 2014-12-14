@@ -35,17 +35,4 @@ app.controller('demoAppCtrl', function ($scope) {
   });
 
   $scope.data2 = angular.copy($scope.data1);
-  $scope.data3 = angular.copy($scope.data1);
-  $scope.data4 = angular.copy($scope.data1);
-
-  $scope.onSelectionChanged = function(items) {
-    var str = '';
-    if (items) {
-      for (var i = 0; i < items.length; i++) {
-        str += items[i].name + ', ';
-      }
-    }
-    return str;
-  };
-
 });

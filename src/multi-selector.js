@@ -52,6 +52,11 @@
       }
     };
 
+    // refresh output model.
+    $scope.refreshOutputModel = function() {
+      $scope.outputModel = angular.copy( $scope.selectedItems );
+    };
+
     /**
      * Deselect the item.
      *
@@ -62,9 +67,7 @@
       $event.stopPropagation();
       $scope.selectedItems.splice($scope.selectedItems.indexOf(item), 1);
       item.selected = false;
-      if ($scope.onSelectionChanged) {
-        $scope.onSelectionChanged({items: $scope.selectedItems.length ? $scope.selectedItems : undefined});
-      }
+      this.refreshOutputModel();
     };
 
     /**
@@ -117,10 +120,7 @@
           $scope.selectedItems.push(item);
         }
       }
-
-      if ($scope.onSelectionChanged) {
-        $scope.onSelectionChanged({items: $scope.selectedItems.length ? $scope.selectedItems : undefined});
-      }
+      this.refreshOutputModel();
     };
 
   }]);
@@ -135,7 +135,8 @@
         replace: true,
         templateUrl: 'src/multi-selector.tpl.html',
         scope: {
-          data: '=',
+          inputModel: '=',
+          outputModel: '=',
           multiSelect: '=?',
           onSelectionChanged: '&',
           canSelectItem: '&'
@@ -147,7 +148,7 @@
 
           scope.$watch('filterKeyword', function () {
             if (scope.filterKeyword !== undefined) {
-              filterTree(scope.data);
+              filterTree(scope.inputModel);
             }
           });
 
