@@ -176,9 +176,8 @@
 
     $scope.onControlClicked = function ($event) {
       $event.stopPropagation();
-      if (!$scope.showTree) {
-        $scope.showTree = true;
-
+      $scope.showTree = !$scope.showTree;
+      if ($scope.showTree) {
         $document.on('click', docClickHide);
         $document.on('keydown', keyboardNav);
       }
