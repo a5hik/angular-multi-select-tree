@@ -18,7 +18,7 @@
         </div>
         <div class="tree-container">
         <ul>
-            <tree-item class="top-level" ng-repeat="item in data" item="item" select-only-leafs="selectOnlyLeafs" ng-show="!item.isFiltered"
+            <tree-item class="top-level" ng-repeat="item in data" item="item" ng-show="!item.isFiltered"
                        use-can-select-item="useCanSelectItemCallback" can-select-item="canSelectItem"
                        multi-select="multiSelect" item-selected="itemSelected(item)"
                        on-active-item="onActiveItem(item)"></tree-item>

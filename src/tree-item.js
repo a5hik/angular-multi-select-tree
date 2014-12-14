@@ -59,7 +59,7 @@
       if ($scope.useCanSelectItem) {
         return $scope.canSelectItem({item: $scope.item});
       }
-      return !$scope.selectOnlyLeafs || ($scope.selectOnlyLeafs && $scope.item.children.length === 0);
+      return true;
     };
 
   }]);
@@ -78,7 +78,6 @@
           onActiveItem: '&',
           multiSelect: '=?',
           isActive: '=', // the item is active - means it is highlighted but not selected
-          selectOnlyLeafs: '=?',
           useCanSelectItem: '=',
           canSelectItem: '=' // reference from the parent control
         },

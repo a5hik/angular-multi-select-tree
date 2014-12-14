@@ -17,11 +17,17 @@
     $scope.selectedItems = [];
     $scope.multiSelect = $scope.multiSelect || false;
 
+    /**
+     * Clicking on document will hide the tree.
+     */
     function docClickHide() {
       closePopup();
       $scope.$apply();
     }
 
+    /**
+     * Closes the tree popup.
+     */
     function closePopup() {
       $scope.showTree = false;
       if (activeItem) {
@@ -31,6 +37,11 @@
       $document.off('click', docClickHide);
     }
 
+    /**
+     * Sets the active item.
+     *
+     * @param item the item element.
+     */
     $scope.onActiveItem = function (item) {
       if (activeItem !== item) {
         if (activeItem) {
@@ -41,16 +52,26 @@
       }
     };
 
+    /**
+     * Deselect the item.
+     *
+     * @param item the item element
+     * @param $event
+     */
     $scope.deselectItem = function (item, $event) {
       $event.stopPropagation();
       $scope.selectedItems.splice($scope.selectedItems.indexOf(item), 1);
-      closePopup();
       item.selected = false;
       if ($scope.onSelectionChanged) {
         $scope.onSelectionChanged({items: $scope.selectedItems.length ? $scope.selectedItems : undefined});
       }
     };
 
+    /**
+     * Swap the tree popup on control click event.
+     *
+     * @param $event the click event.
+     */
     $scope.onControlClicked = function ($event) {
       $event.stopPropagation();
       $scope.showTree = !$scope.showTree;
@@ -59,12 +80,22 @@
       }
     };
 
+    /**
+     * Stop the event on filter clicked.
+     *
+     * @param $event the click event
+     */
     $scope.onFilterClicked = function ($event) {
       $event.stopPropagation();
     };
 
+    /**
+     * Handles the item select event.
+     *
+     * @param item the selected item.
+     */
     $scope.itemSelected = function (item) {
-      if (($scope.useCanSelectItemCallback && $scope.canSelectItem({item: item}) === false) || ($scope.selectOnlyLeafs && item.children && item.children.length > 0)) {
+      if ($scope.useCanSelectItemCallback && $scope.canSelectItem({item: item}) === false) {
         return;
       }
 
@@ -107,7 +138,6 @@
           data: '=',
           multiSelect: '=?',
           onSelectionChanged: '&',
-          selectOnlyLeafs: '=?',
           canSelectItem: '&'
         },
         link: function (scope, element, attrs) {

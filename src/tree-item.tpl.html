@@ -9,8 +9,8 @@
         </div>
     </div>
     <ul ng-repeat="child in item.children" ng-if="item.isExpanded">
-        <tree-item item="child" item-selected="subItemSelected(item)" select-only-leafs="selectOnlyLeafs"
-                   use-can-select-item="useCanSelectItem" can-select-item="canSelectItem" multi-select="multiSelect"
+        <tree-item item="child" item-selected="subItemSelected(item)" use-can-select-item="useCanSelectItem"
+                   can-select-item="canSelectItem" multi-select="multiSelect"
                    on-active-item="activeSubItem(item, $event)"></tree-item>
     </ul>
 </li>
