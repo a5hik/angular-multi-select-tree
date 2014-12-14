@@ -52,7 +52,9 @@
       }
     };
 
-    // refresh output model.
+    /**
+     * Copies the selectedItems in to output model.
+     */
     $scope.refreshOutputModel = function() {
       $scope.outputModel = angular.copy( $scope.selectedItems );
     };
@@ -138,7 +140,6 @@
           inputModel: '=',
           outputModel: '=',
           multiSelect: '=?',
-          onSelectionChanged: '&',
           canSelectItem: '&'
         },
         link: function (scope, element, attrs) {
