@@ -1,5 +1,6 @@
 <div class="tree-control">
-    <div class="tree-input form-control" ng-click="onControlClicked($event)">
+
+    <button type="button" class="tree-input" ng-click="onControlClicked($event)">
     <span ng-if="selectedItems.length == 0" class="selected-items">
       <span ng-bind="defaultLabel"></span>
     </span>
@@ -7,7 +8,7 @@
       <span ng-repeat="selectedItem in selectedItems" class="selected-item">{{selectedItem.name}} <span class="selected-item-close"
                                                                                   ng-click="deselectItem(selectedItem, $event)"></span></span>
     </span>
-    </div>
+    </button>
     <div class="tree-view" ng-show="showTree">
         <div class="helper-container">
            <!-- <div class="line" >
