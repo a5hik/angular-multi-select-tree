@@ -20,13 +20,11 @@
                 <button type="button" class="clear-button">×</button>
             </div>
         </div>
-        <div class="tree-container">
-        <ul>
+        <ul class="tree-container">
             <tree-item class="top-level" ng-repeat="item in inputModel" item="item" ng-show="!item.isFiltered"
                        use-can-select-item="useCanSelectItemCallback" can-select-item="canSelectItem"
                        multi-select="multiSelect" item-selected="itemSelected(item)"
                        on-active-item="onActiveItem(item)"></tree-item>
         </ul>
-        </div>
     </div>
 </div>

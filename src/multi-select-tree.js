@@ -135,7 +135,7 @@
       return {
         restrict: 'E',
         replace: true,
-        templateUrl: 'src/multi-selector.tpl.html',
+        templateUrl: 'src/multi-select-tree.tpl.html',
         scope: {
           inputModel: '=',
           outputModel: '=?',
