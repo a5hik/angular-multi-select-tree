@@ -8,6 +8,7 @@
       <span ng-repeat="selectedItem in selectedItems" class="selected-item">{{selectedItem.name}} <span class="selected-item-close"
                                                                                   ng-click="deselectItem(selectedItem, $event)"></span></span>
     </span>
+        <span class="caret"></span>
     </button>
     <div class="tree-view" ng-show="showTree">
         <div class="helper-container">
