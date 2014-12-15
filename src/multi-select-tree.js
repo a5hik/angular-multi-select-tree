@@ -64,28 +64,20 @@
      */
     $scope.refreshSelectedItems = function () {
       $scope.selectedItems = [];
-      angular.forEach($scope.inputModel, function (parentElement) {
-        if (parentElement !== undefined) {
-          if (parentElement.selected === true) {
-            $scope.selectedItems.push(parentElement);
-          }
-          setSelectedChildren(parentElement);
-        }
-      });
+      setSelectedChildren($scope.inputModel);
     };
 
     /**
      * Iterates over children and sets the selected items.
      *
-     * @param parentElement the parent element.
+     * @param children the children element.
      */
-    function setSelectedChildren(parentElement) {
-      var children = parentElement.children;
+    function setSelectedChildren(children) {
       for (var i = 0, len = children.length; i < len; i++) {
         if (children[i].selected === true) {
           $scope.selectedItems.push(children[i]);
         }
-        setSelectedChildren(children[i]);
+        setSelectedChildren(children[i].children);
       }
     }
 
@@ -189,20 +181,15 @@
 
           scope.$watch('filterKeyword', function () {
             if (scope.filterKeyword !== undefined) {
-              filterTree(scope.inputModel);
+              angular.forEach(scope.inputModel, function (item) {
+                if (item.name.toLowerCase().indexOf(scope.filterKeyword.toLowerCase()) !== -1) {
+                  item.isFiltered = false;
+                } else {
+                  item.isFiltered = true;
+                }
+              });
             }
           });
-
-          function filterTree(itemArray) {
-            //TODO: do it for recursive.
-            angular.forEach(itemArray, function (item) {
-              if (item.name.toLowerCase().indexOf(scope.filterKeyword.toLowerCase()) !== -1) {
-                item.isFiltered = false;
-              } else {
-                item.isFiltered = true;
-              }
-            });
-          }
         },
         controller: 'multiSelectTreeCtrl'
       };
