@@ -55,9 +55,39 @@
     /**
      * Copies the selectedItems in to output model.
      */
-    $scope.refreshOutputModel = function() {
-      $scope.outputModel = angular.copy( $scope.selectedItems );
+    $scope.refreshOutputModel = function () {
+      $scope.outputModel = angular.copy($scope.selectedItems);
     };
+
+    /**
+     * Refreshes the selected Items model.
+     */
+    $scope.refreshSelectedItems = function () {
+      $scope.selectedItems = [];
+      angular.forEach($scope.inputModel, function (parentElement) {
+        if (parentElement !== undefined) {
+          if (parentElement.selected === true) {
+            $scope.selectedItems.push(parentElement);
+          }
+          setSelectedChildren(parentElement);
+        }
+      });
+    };
+
+    /**
+     * Iterates over children and sets the selected items.
+     *
+     * @param parentElement the parent element.
+     */
+    function setSelectedChildren(parentElement) {
+      var children = parentElement.children;
+      for (var i = 0, len = children.length; i < len; i++) {
+        if (children[i].selected === true) {
+          $scope.selectedItems.push(children[i]);
+        }
+        setSelectedChildren(children[i]);
+      }
+    }
 
     /**
      * Deselect the item.
@@ -147,6 +177,15 @@
           if (attrs.canSelectItem) {
             scope.useCanSelectItemCallback = true;
           }
+
+          // watch for changes in input model as a whole
+          // this on updates the multi-select when a user load a whole new input-model.
+          scope.$watch('inputModel', function (newVal) {
+            if (newVal) {
+              scope.refreshSelectedItems();
+              scope.refreshOutputModel();
+            }
+          });
 
           scope.$watch('filterKeyword', function () {
             if (scope.filterKeyword !== undefined) {

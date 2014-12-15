@@ -31,7 +31,8 @@ app.controller('demoAppCtrl', function ($scope) {
   $scope.data1[1].children[0].children.push({
     id: j,
     name: 'Node sub_sub 1',
-    children: []
+    children: [],
+    selected: true
   });
 
   $scope.data2 = angular.copy($scope.data1);
