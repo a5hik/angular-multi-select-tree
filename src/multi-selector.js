@@ -130,7 +130,7 @@
   /**
    * sortableItem directive.
    */
-  mainModule.directive('multiSelector',
+  mainModule.directive('multiSelectTree',
     function () {
       return {
         restrict: 'E',
@@ -138,9 +138,10 @@
         templateUrl: 'src/multi-selector.tpl.html',
         scope: {
           inputModel: '=',
-          outputModel: '=',
+          outputModel: '=?',
           multiSelect: '=?',
-          canSelectItem: '&'
+          canSelectItem: '&',
+          defaultLabel: '@'
         },
         link: function (scope, element, attrs) {
           if (attrs.canSelectItem) {

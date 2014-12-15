@@ -1,5 +1,8 @@
 <div class="tree-control">
     <div class="tree-input form-control" ng-click="onControlClicked($event)">
+    <span ng-if="selectedItems.length == 0" class="selected-items">
+      <span ng-bind="defaultLabel"></span>
+    </span>
     <span ng-if="selectedItems.length > 0" class="selected-items">
       <span ng-repeat="selectedItem in selectedItems" class="selected-item">{{selectedItem.name}} <span class="selected-item-close"
                                                                                   ng-click="deselectItem(selectedItem, $event)"></span></span>
