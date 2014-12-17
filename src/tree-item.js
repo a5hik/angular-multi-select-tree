@@ -106,7 +106,7 @@
   /**
    * sortableItem directive.
    */
-  mainModule.directive('treeItem',
+  mainModule.directive('treeItem', [$compile,
     function ($compile) {
       return {restrict: 'E',
         replace: true,
@@ -159,5 +159,5 @@
           };
         }
       };
-    });
+    }]);
 }());
