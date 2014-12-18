@@ -106,7 +106,7 @@
   /**
    * sortableItem directive.
    */
-  mainModule.directive('treeItem', [$compile,
+  mainModule.directive('treeItem', ['$compile',
     function ($compile) {
       return {restrict: 'E',
         replace: true,
