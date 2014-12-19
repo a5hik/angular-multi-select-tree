@@ -95,8 +95,8 @@
       if (!$scope.multiSelect) {
         return false;
       }
-      if ($scope.useCanSelectItem) {
-        return $scope.canSelectItem({item: $scope.item});
+      if ($scope.useCallback) {
+        return $scope.canSelectItem($scope.item);
       }
       return true;
     };
@@ -108,8 +108,8 @@
    */
   mainModule.directive('treeItem', ['$compile',
     function ($compile) {
-      return {restrict: 'E',
-        replace: true,
+      return {
+        restrict: 'E',
         templateUrl: 'src/tree-item.tpl.html',
         scope: {
           item: '=',
@@ -117,7 +117,7 @@
           onActiveItem: '&',
           multiSelect: '=?',
           isActive: '=', // the item is active - means it is highlighted but not selected
-          useCanSelectItem: '=',
+          useCallback: '=',
           canSelectItem: '=' // reference from the parent control
         },
         controller: 'treeItemCtrl',

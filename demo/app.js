@@ -36,4 +36,12 @@ app.controller('demoAppCtrl', function ($scope) {
   });
 
   $scope.data2 = angular.copy($scope.data1);
+
+  $scope.selectOnly1Or2 = function(item, selectedItems) {
+    if (selectedItems  !== undefined && selectedItems.length >= 2) {
+      return false;
+    } else {
+      return true;
+    }
+  };
 });

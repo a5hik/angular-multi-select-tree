@@ -117,12 +117,21 @@
     };
 
     /**
+     * Wrapper function for can select item callback.
+     *
+     * @param item the item
+     */
+    $scope.canSelectItem = function(item) {
+      return $scope.callback({item: item, selectedItems: $scope.selectedItems});
+    };
+
+    /**
      * Handles the item select event.
      *
      * @param item the selected item.
      */
     $scope.itemSelected = function (item) {
-      if ($scope.useCanSelectItemCallback && $scope.canSelectItem({item: item}) === false) {
+      if ($scope.useCallback && $scope.canSelectItem(item) === false) {
         return;
       }
 
@@ -156,18 +165,17 @@
     function () {
       return {
         restrict: 'E',
-        replace: true,
         templateUrl: 'src/multi-select-tree.tpl.html',
         scope: {
           inputModel: '=',
           outputModel: '=?',
           multiSelect: '=?',
-          canSelectItem: '&',
+          callback: '&',
           defaultLabel: '@'
         },
         link: function (scope, element, attrs) {
-          if (attrs.canSelectItem) {
-            scope.useCanSelectItemCallback = true;
+          if (attrs.callback) {
+            scope.useCallback = true;
           }
 
           // watch for changes in input model as a whole
