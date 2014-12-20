@@ -1,24 +1,26 @@
 <div class="tree-control">
 
-    <button type="button" class="tree-input" ng-click="onControlClicked($event)">
+    <div class="btn tree-input" ng-click="onControlClicked($event)">
     <span ng-if="selectedItems.length == 0" class="selected-items">
       <span ng-bind="defaultLabel"></span>
     </span>
     <span ng-if="selectedItems.length > 0" class="selected-items">
-      <span ng-repeat="selectedItem in selectedItems" class="selected-item">{{selectedItem.name}} <span class="selected-item-close"
-                                                                                  ng-click="deselectItem(selectedItem, $event)"></span></span>
-    </span>
+      <span ng-repeat="i in selectedItems" class="selected-item">{{i.name}} <span class="item-close"
+                                                                                  ng-click="deselectItem(i, $event)"></span></span>
         <span class="caret"></span>
-    </button>
+    </span>
+        <!-- <input type="text" class="blend-in" /> -->
+    </div>
     <div class="tree-view" ng-show="showTree">
         <div class="helper-container">
-           <!-- <div class="line" >
-                <button type="button" ng-click="select( 'none', $event );" class="helper-button">×&nbsp; Select None</button>
-                <button type="button" ng-click="select( 'reset', $event );" class="helper-button">↶&nbsp; Reset</button>
-            </div>-->
+            <!-- <div class="line" >
+                 <button type="button" ng-click="select( 'none', $event );" class="helper-button">×&nbsp; Select None</button>
+                 <button type="button" ng-click="select( 'reset', $event );" class="helper-button">↶&nbsp; Reset</button>
+             </div>-->
             <div class="line">
-                <input placeholder="Search..." type="text" ng-model="filterKeyword" ng-click="onFilterClicked($event)" class="input-filter">
-                <button type="button" class="clear-button">×</button>
+                <input placeholder="Search..." type="text" ng-model="filterKeyword" ng-click="onFilterClicked($event)"
+                       class="input-filter">
+                <span class="clear-button" ng-click="clearFilter($event)"><span class="item-close"></span></span>
             </div>
         </div>
         <ul class="tree-container">

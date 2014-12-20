@@ -117,6 +117,16 @@
     };
 
     /**
+     * Clears the filter text.
+     *
+     * @param $event the click event
+     */
+    $scope.clearFilter = function($event) {
+      $event.stopPropagation();
+      $scope.filterKeyword = '';
+    };
+
+    /**
      * Wrapper function for can select item callback.
      *
      * @param item the item
