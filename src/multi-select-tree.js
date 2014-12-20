@@ -121,7 +121,7 @@
      *
      * @param $event the click event
      */
-    $scope.clearFilter = function($event) {
+    $scope.clearFilter = function ($event) {
       $event.stopPropagation();
       $scope.filterKeyword = '';
     };
@@ -131,7 +131,7 @@
      *
      * @param item the item
      */
-    $scope.canSelectItem = function(item) {
+    $scope.canSelectItem = function (item) {
       return $scope.callback({item: item, selectedItems: $scope.selectedItems});
     };
 
@@ -197,10 +197,41 @@
             }
           });
 
+          /**
+           * Checks whether any of children match the keyword.
+           *
+           * @param item the parent item
+           * @param keyword the filter keyword
+           * @returns {boolean} false if matches.
+           */
+          function isChildrenFiltered(item, keyword) {
+            var childNodes = getAllChildNodesFromNode(item, []);
+            for (var i = 0, len = childNodes.length; i < len; i++) {
+              if (childNodes[i].name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1) {
+                return false;
+              }
+            }
+            return true;
+          }
+
+          /**
+           * Return all childNodes of a given node (as Array of Nodes)
+           */
+          function getAllChildNodesFromNode(node, childNodes) {
+            for (var i = 0; i < node.children.length; i++) {
+              childNodes.push(node.children[i]);
+              // add the childNodes from the children if available
+              getAllChildNodesFromNode(node.children[i], childNodes);
+            }
+            return childNodes;
+          }
+
           scope.$watch('filterKeyword', function () {
             if (scope.filterKeyword !== undefined) {
               angular.forEach(scope.inputModel, function (item) {
                 if (item.name.toLowerCase().indexOf(scope.filterKeyword.toLowerCase()) !== -1) {
+                  item.isFiltered = false;
+                } else if (!isChildrenFiltered(item, scope.filterKeyword)) {
                   item.isFiltered = false;
                 } else {
                   item.isFiltered = true;
