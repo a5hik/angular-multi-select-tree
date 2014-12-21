@@ -1,5 +1,6 @@
 .tree-control .tree-input {
   position: relative;
+  display: inline-block;
   text-align: center;
   cursor: pointer;
   border: 1px solid #c6c6c6;
@@ -42,17 +43,19 @@
   padding: 3px;
   cursor: text;
 }
-.tree-control .tree-input span.selected-items .item-close {
+
+.tree-control .tree-input span.selected-items .selected-item-close {
   width: 20px;
   cursor: pointer;
   font-weight: bold;
   display: inline-block;
-  padding: 5px;
+  padding: 2px;
+  text-align: center;
 }
-.tree-control .tree-input span.selected-items .item-close:hover {
+.tree-control .tree-input span.selected-items .selected-item-close:hover {
   background-color: #f2f2f2
 }
-.tree-control .tree-input span.selected-items .item-close:before {
+.tree-control .tree-input span.selected-items .selected-item-close:before {
   content: 'x';
 }
 
@@ -201,6 +204,19 @@
   max-height: 34px;
   overflow: hidden;
   position: relative;
+}
+
+.tree-control .tree-view .item-close {
+  width: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 5px;
+}
+.tree-control .tree-view .item-close:hover {
+  background-color: #f2f2f2
+}
+.tree-control .tree-view .item-close:before {
+  content: 'x';
 }
 
 .tree-control .tree-view li {

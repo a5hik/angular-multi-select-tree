@@ -1,12 +1,12 @@
 <div class="tree-control">
 
-    <div class="btn tree-input" ng-click="onControlClicked($event)">
+    <div class="tree-input" ng-click="onControlClicked($event)">
     <span ng-if="selectedItems.length == 0" class="selected-items">
       <span ng-bind="defaultLabel"></span>
     </span>
     <span ng-if="selectedItems.length > 0" class="selected-items">
-      <span ng-repeat="i in selectedItems" class="selected-item">{{i.name}} <span class="item-close"
-                                                                                  ng-click="deselectItem(i, $event)"></span></span>
+      <span ng-repeat="selectedItem in selectedItems" class="selected-item">{{selectedItem.name}} <span class="selected-item-close"
+                                                                                  ng-click="deselectItem(selectedItem, $event)"></span></span>
         <span class="caret"></span>
     </span>
         <!-- <input type="text" class="blend-in" /> -->
