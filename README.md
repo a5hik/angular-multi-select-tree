@@ -1,7 +1,8 @@
 angular-multi-select-tree
 =============================
 
-A native Angular multi select tree.
+A native Angular multi select tree. No JQuery.
+If you use this module you can give it a thumbs up at [http://ngmodules.org/modules/angular-multi-select-tree](http://ngmodules.org/modules/angular-multi-select-tree).
 
 #### Demo Page:
 
