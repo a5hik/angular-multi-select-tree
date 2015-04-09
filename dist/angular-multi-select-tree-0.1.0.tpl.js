@@ -17,10 +17,10 @@ angular.module('multi-select-tree').run(['$templateCache', function($templateCac
     "    </div>\n" +
     "    <div class=\"tree-view\" ng-show=\"showTree\">\n" +
     "        <div class=\"helper-container\">\n" +
-    "            <!-- <div class=\"line\" >\n" +
+    "             <div class=\"line\" >\n" +
     "                 <button type=\"button\" ng-click=\"select( 'none', $event );\" class=\"helper-button\">×&nbsp; Select None</button>\n" +
     "                 <button type=\"button\" ng-click=\"select( 'reset', $event );\" class=\"helper-button\">↶&nbsp; Reset</button>\n" +
-    "             </div>-->\n" +
+    "             </div>\n" +
     "            <div class=\"line\">\n" +
     "                <input placeholder=\"Search...\" type=\"text\" ng-model=\"filterKeyword\" ng-click=\"onFilterClicked($event)\"\n" +
     "                       class=\"input-filter\">\n" +

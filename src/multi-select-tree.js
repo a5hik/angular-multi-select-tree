@@ -141,7 +141,8 @@
      * @param item the selected item.
      */
     $scope.itemSelected = function (item) {
-      if ($scope.useCallback && $scope.canSelectItem(item) === false) {
+      if (($scope.useCallback && $scope.canSelectItem(item) === false) ||
+         ($scope.selectOnlyLeafs && item.children && item.children.length > 0)) {
         return;
       }
 
