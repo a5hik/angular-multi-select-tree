@@ -195,6 +195,7 @@
         inputModel: '=',
         outputModel: '=?',
         multiSelect: '=?',
+        selectOnlyLeafs: '=?',
         callback: '&',
         defaultLabel: '@'
       },
@@ -343,10 +344,12 @@
         if (!$scope.multiSelect) {
           return false;
         }
+        if ($scope.selectOnlyLeafs) {
+          return false;
+        }
         if ($scope.useCallback) {
           return $scope.canSelectItem($scope.item);
         }
-        return true;
       };
     }
   ]);
@@ -364,6 +367,7 @@
           itemSelected: '&',
           onActiveItem: '&',
           multiSelect: '=?',
+          selectOnlyLeafs: '=?',
           isActive: '=',
           useCallback: '=',
           canSelectItem: '='

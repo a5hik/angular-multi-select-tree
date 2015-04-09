@@ -31,7 +31,7 @@ angular.module('multi-select-tree').run(['$templateCache', function($templateCac
     "            <tree-item class=\"top-level\" ng-repeat=\"item in inputModel\" item=\"item\" ng-show=\"!item.isFiltered\"\n" +
     "                       use-callback=\"useCallback\" can-select-item=\"canSelectItem\"\n" +
     "                       multi-select=\"multiSelect\" item-selected=\"itemSelected(item)\"\n" +
-    "                       on-active-item=\"onActiveItem(item)\"></tree-item>\n" +
+    "                       on-active-item=\"onActiveItem(item)\" select-only-leafs=\"selectOnlyLeafs\"></tree-item>\n" +
     "        </ul>\n" +
     "    </div>\n" +
     "</div>\n"

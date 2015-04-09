@@ -27,7 +27,7 @@
             <tree-item class="top-level" ng-repeat="item in inputModel" item="item" ng-show="!item.isFiltered"
                        use-callback="useCallback" can-select-item="canSelectItem"
                        multi-select="multiSelect" item-selected="itemSelected(item)"
-                       on-active-item="onActiveItem(item)"></tree-item>
+                       on-active-item="onActiveItem(item)" select-only-leafs="selectOnlyLeafs"></tree-item>
         </ul>
     </div>
 </div>

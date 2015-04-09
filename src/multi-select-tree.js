@@ -180,6 +180,7 @@
           inputModel: '=',
           outputModel: '=?',
           multiSelect: '=?',
+          selectOnlyLeafs: '=?',
           callback: '&',
           defaultLabel: '@'
         },
