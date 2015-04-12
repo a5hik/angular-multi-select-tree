@@ -136,6 +136,17 @@
     };
 
     /**
+     * The callback is used to switch the views.
+     * based on the view type.
+     *
+     * @param $event the event object.
+     */
+    $scope.switchCurrentView = function($event) {
+      $event.stopPropagation();
+      $scope.switchViewCallback({scopeObj:$scope});
+    };
+
+    /**
      * Handles the item select event.
      *
      * @param item the selected item.
@@ -181,6 +192,9 @@
           inputModel: '=',
           outputModel: '=?',
           multiSelect: '=?',
+          switchView: '=?',
+          switchViewLabel: '@',
+          switchViewCallback: '&',
           selectOnlyLeafs: '=?',
           callback: '&',
           defaultLabel: '@'

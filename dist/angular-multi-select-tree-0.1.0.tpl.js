@@ -17,9 +17,8 @@ angular.module('multi-select-tree').run(['$templateCache', function($templateCac
     "    </div>\n" +
     "    <div class=\"tree-view\" ng-show=\"showTree\">\n" +
     "        <div class=\"helper-container\">\n" +
-    "             <div class=\"line\" >\n" +
-    "                 <button type=\"button\" ng-click=\"select( 'none', $event );\" class=\"helper-button\">×&nbsp; Select None</button>\n" +
-    "                 <button type=\"button\" ng-click=\"select( 'reset', $event );\" class=\"helper-button\">↶&nbsp; Reset</button>\n" +
+    "             <div class=\"line\" data-ng-if=\"switchView\">\n" +
+    "                 <button type=\"button\" ng-click=\"switchCurrentView($event);\" class=\"helper-button\">{{switchViewLabel}}</button>\n" +
     "             </div>\n" +
     "            <div class=\"line\">\n" +
     "                <input placeholder=\"Search...\" type=\"text\" ng-model=\"filterKeyword\" ng-click=\"onFilterClicked($event)\"\n" +

@@ -25,10 +25,11 @@
             <h2>Multi-select</h2>
 
             <div class="col-md-6">
-                <multi-select-tree data-input-model="data2" multi-select="true"
+                <multi-select-tree data-input-model="data" multi-select="true"
                                    data-output-model="selectedItem2" data-default-label="Click here to Select..."
                                    data-callback="selectOnly1Or2(item, selectedItems)"
-                                   data-select-only-leafs="true"></multi-select-tree>
+                                   data-select-only-leafs="true" data-switch-view-callback="switchViewCallback(scopeObj)"
+                                   data-switch-view-label="test1" data-switch-view="true"></multi-select-tree>
                 <br/>Selected items: {{selectedItem2}}
             </div>
 

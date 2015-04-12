@@ -13,9 +13,8 @@
     </div>
     <div class="tree-view" ng-show="showTree">
         <div class="helper-container">
-             <div class="line" >
-                 <button type="button" ng-click="select( 'none', $event );" class="helper-button">×&nbsp; Select None</button>
-                 <button type="button" ng-click="select( 'reset', $event );" class="helper-button">↶&nbsp; Reset</button>
+             <div class="line" data-ng-if="switchView">
+                 <button type="button" ng-click="switchCurrentView($event);" class="helper-button">{{switchViewLabel}}</button>
              </div>
             <div class="line">
                 <input placeholder="Search..." type="text" ng-model="filterKeyword" ng-click="onFilterClicked($event)"
