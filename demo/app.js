@@ -42,8 +42,7 @@ app.controller('demoAppCtrl', function ($scope) {
   for (var i = 0; i < 7; i++) {
     var obj3 = {
       id: i,
-      name: 'Node new view ' + i,
-      children: []
+      name: 'Node new view ' + i
     };
     data3.push(obj3);
   }

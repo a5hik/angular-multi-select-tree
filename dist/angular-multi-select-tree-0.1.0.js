@@ -86,7 +86,9 @@
      */
       $scope.refreshSelectedItems = function () {
         $scope.selectedItems = [];
-        setSelectedChildren($scope.inputModel);
+        if ($scope.inputModel) {
+          setSelectedChildren($scope.inputModel);
+        }
       };
       /**
      * Iterates over children and sets the selected items.
@@ -98,7 +100,9 @@
           if (children[i].selected === true) {
             $scope.selectedItems.push(children[i]);
           }
-          setSelectedChildren(children[i].children);
+          if (children[i] && children[i].children) {
+            setSelectedChildren(children[i].children);
+          }
         }
       }
       /**
