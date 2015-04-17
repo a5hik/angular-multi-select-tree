@@ -76,13 +76,33 @@
      */
     function setSelectedChildren(children) {
       for (var i = 0, len = children.length; i < len; i++) {
-        if (children[i].selected === true) {
+        if (!isItemSelected(children[i]) && children[i].selected === true) {
           $scope.selectedItems.push(children[i]);
+        } else if (isItemSelected(children[i]) && children[i].selected === false) {
+          children[i].selected = true;
         }
         if (children[i] && children[i].children) {
           setSelectedChildren(children[i].children);
         }
       }
+    }
+    /**
+     * Checks of the item is already selected.
+     *
+     * @param item the item to be checked.
+     * @return {boolean} if the item is already selected.
+     */
+    function isItemSelected(item) {
+      var isSelected = false;
+      if ($scope.selectedItems) {
+        for (var i = 0; i < $scope.selectedItems.length; i++) {
+          if ($scope.selectedItems[i].id === item.id) {
+            isSelected = true;
+            break;
+          }
+        }
+      }
+      return isSelected;
     }
 
     /**
@@ -157,7 +177,7 @@
      */
     $scope.itemSelected = function (item) {
       if (($scope.useCallback && $scope.canSelectItem(item) === false) ||
-         ($scope.selectOnlyLeafs && item.children && item.children.length > 0)) {
+        ($scope.selectOnlyLeafs && item.children && item.children.length > 0)) {
         return;
       }
 
@@ -172,7 +192,7 @@
       } else {
         item.selected = true;
         var indexOfItem = $scope.selectedItems.indexOf(item);
-        if (indexOfItem > -1) {
+        if (isItemSelected(item)) {
           item.selected = false;
           $scope.selectedItems.splice(indexOfItem, 1);
         } else {
