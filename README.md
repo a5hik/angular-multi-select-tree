@@ -21,7 +21,7 @@ TBD
 TBD
 ##### Usage:
 
-Get the binaries of ng-sortable with any of the following ways.
+Get the binaries of angular-multi-select-tree with any of the following ways.
 
 ```sh
 bower install angular-multi-select-tree
