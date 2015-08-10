@@ -3,6 +3,7 @@
     <div class="tree-input" ng-click="onControlClicked($event)">
     <span ng-if="selectedItems.length == 0" class="selected-items">
       <span ng-bind="defaultLabel"></span>
+      <span class="caret"></span>
     </span>
     <span ng-if="selectedItems.length > 0" class="selected-items">
       <span ng-repeat="selectedItem in selectedItems" class="selected-item">{{selectedItem.name}} <span class="selected-item-close"
