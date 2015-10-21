@@ -235,7 +235,7 @@
               scope.refreshSelectedItems();
               scope.refreshOutputModel();
             }
-          });
+          }, true);
 
           /**
            * Checks whether any of children match the keyword.
